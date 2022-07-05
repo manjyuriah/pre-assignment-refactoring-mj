@@ -1,0 +1,50 @@
+[
+    {
+        "id" : 1,
+        "nickname" : "james",
+        "src": "https://source.unsplash.com/random/600x500",
+        "like": 5,
+        "content": "어렵지만 해볼래! 난 할 수 있어.",
+        "comments": [
+            {
+                "nickname": "hello1",
+                "content": "파이팅! 너라면 잘 해낼거야."
+            }, {
+                "nickname": "hello2",
+                "content" : "우리 모두 힘내자."
+            }
+        ]
+    },
+    {
+        "id" : 2,
+        "nickname" : "nick",
+        "src": "https://source.unsplash.com/random/900x500",
+        "like": 12550,
+        "content": "기업 실전 과제로 ‘현실’ 직무를 미리 만나고,연계 취업까지 한번에!",
+        "comments": [
+            {
+                "nickname": "wanted1",
+                "content": "면접 백전백승"
+            }, {
+                "nickname": "wanted2",
+                "content" : "모두 취업 성공"
+            }
+        ]
+    },
+    {
+        "id" : 3,
+        "nickname" : "kate",
+        "src": "https://source.unsplash.com/random/700x1080",
+        "like": 581,
+        "content": "신입은 어디서 경험을 쌓고 어떻게 취업하나요?",
+        "comments": [
+            {
+                "nickname": "frontend1",
+                "content": "취업시장에서 React와 TypeScript를 많이 보네요"
+            }, {
+                "nickname": "frontend2",
+                "content" : "이번 여름 장마가 이르게 찾아왔습니다"
+            }
+        ]
+    }
+  ]
