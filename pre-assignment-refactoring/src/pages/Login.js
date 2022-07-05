@@ -1,9 +1,10 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { checkRegexp } from '../components/RegExp';
 
 //임시 유저 정보
 const userInfo = {
-  id: 'arong@dog.com',
+  email: 'arong@dog.com',
   pwd: 'Arong1234!',
 };
 
@@ -11,66 +12,47 @@ const Login = () => {
   const navigate = useNavigate();
 
   const localStorage = window.localStorage;
-  const [validEmail, setValidEmail] = useState(false);
-  const [validPwd, setValidPwd] = useState(false);
   const [validBtn, setValidBtn] = useState(false);
+  const [isLogged, setIsLogged] = useState(false);
+  const [user, setUser] = useState({
+    email : null,
+    pwd : null,
+  })
 
   const idRef = useRef();
   const pwdRef = useRef();
 
-  //이메일 유효성 검사
-  const checkEmail = (e) => {
-    let regExp =
-      /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/i;
-    const result = regExp.test(e.target.value);
-    if (result) {
-      setValidEmail(result);
-    } else {
-      setValidEmail(false);
-    }
-    return regExp.test(e.target.value);
-  };
 
-  //비밀번호 유효성 검사 (영대문자, 숫자, 특수문자, 8자 이상)
-  const checkPwd = (e) => {
-    let regExp = /^(?=.*?[A-Z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/;
-    const result = regExp.test(e.target.value);
-    if (result) {
-      setValidPwd(result);
-    } else {
-      setValidPwd(false);
+  //이메일과 비밀번호 유효성 검사
+  const checkValidInfo = (e) => {
+    const key = e.target.id
+    const value = e.target.value
+    const result = checkRegexp(key, value)
+    if (result){
+        setUser({...user, [key]:value})
+        console.log(user.email)
     }
-    return regExp.test(e.target.value);
-  };
-
-  //아이디와 비밀번호 useState()
+  }
+  useEffect(() => {
+    if (user.email && user.pwd) {
+      setValidBtn(true)
+    }
+  })
+  
   const handleLogin = () => {
-    const user = {
-      id: idRef.current.value,
-      pwd: pwdRef.current.value,
-    };
-    if (validBtn) {
-      if (user.id === userInfo.id && user.pwd === userInfo.pwd) {
+      if (user.email === userInfo.email && user.pwd === userInfo.pwd) {
         //localStorage에 아이디와 비밀번호 저장
-        localStorage.setItem('id', user.id);
+        localStorage.setItem('email', user.email);
         localStorage.setItem('pwd', user.pwd);
+        setIsLogged(true)
         navigate('/home');
       } else {
         alert('이메일 또는 비밀번호가 틀립니다.');
         idRef.current.value = '';
         pwdRef.current.value = '';
       }
-    }
-  };
 
-  //버튼 활성화
-  useEffect(() => {
-    if (validEmail && validPwd) {
-      setValidBtn(true);
-    } else {
-      setValidBtn(false);
-    }
-  });
+  };
 
   return (
     <div className="Login">
@@ -79,20 +61,21 @@ const Login = () => {
           <img
             className="logo"
             src={process.env.PUBLIC_URL + '/assets/logo.png'}
+            alt="로고"
           />
           <input
-            className={validEmail ? 'input-valid' : 'input-invalid'}
+            className={user.email ? 'input-valid' : 'input-invalid'}
             placeholder="전화번호, 사용자 이름 또는 이메일"
-            name="id"
+            id="email"
             ref={idRef}
-            onBlur={checkEmail}
+            onChange={checkValidInfo}
           />
           <input
-            className={validPwd ? 'input-valid' : 'input-invalid'}
+            className={user.pwd ? 'input-valid' : 'input-invalid'}
             placeholder="비밀번호"
-            name="pwd"
+            id="pwd"
             ref={pwdRef}
-            onBlur={checkPwd}
+            onChange={checkValidInfo}
           />
           <button
             className={validBtn ? 'btn-activate' : 'btn-disabled'}
