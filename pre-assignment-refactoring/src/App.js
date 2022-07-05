@@ -1,11 +1,13 @@
 // import logo from './logo.svg';
 import './App.css';
 import Feeds from "../src/pages/Feeds"
+// import Feed from "./components/Feed"
 
 function App() {
   return (
     <div className="App">
       <Feeds />
+      {/* <Feed /> */}
       {/* <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
