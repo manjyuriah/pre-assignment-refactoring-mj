@@ -17,7 +17,6 @@ import { FiHeart, FiSend, FiBookmark } from 'react-icons/fi';
 import { FaRegComment } from 'react-icons/fa';
 
 const Feed = ({ feed }) => {
-  console.log(feed);
   const [loading, setLoading] = useState(true);
   const [comments, setComments] = useState(feed.comments);
 
@@ -33,7 +32,6 @@ const Feed = ({ feed }) => {
     const image = new Image();
     image.src = feed.src;
     image.onload = () => {
-      console.log(false);
       setLoading(false);
     };
   }, [feed.src]);
