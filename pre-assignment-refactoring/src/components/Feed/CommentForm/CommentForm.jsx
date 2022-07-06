@@ -1,5 +1,5 @@
 import React, { useCallback, useRef, useState } from 'react';
-import { Form, CommentInput, Button } from './style';
+import { Form, CommentInput, Button } from '../../styles/commentFormStyle';
 
 const CommentForm = ({ addComment }) => {
   const [isActive, setIsActive] = useState(false);
