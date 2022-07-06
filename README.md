@@ -82,10 +82,10 @@
         
     - JSON
         
-        ```jsx
+        ```
         {
-        		"id" : 1,
-        		"nickname" : "james",
+            "id" : 1,
+            "nickname" : "james",
             "img": "https://source.unsplash.com/random/600x500",
             "like": 5,
             "content": "어렵지만 해볼래! 난 할 수 있어.",
