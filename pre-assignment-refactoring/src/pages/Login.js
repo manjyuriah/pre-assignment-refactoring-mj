@@ -19,7 +19,7 @@ const Login = () => {
     pwd: null,
   });
 
-  const idRef = useRef();
+  const emailRef = useRef();
   const pwdRef = useRef();
 
   //이메일과 비밀번호 유효성 검사
@@ -29,7 +29,6 @@ const Login = () => {
     const result = checkRegexp(key, value);
     if (result) {
       setUser({ ...user, [key]: value });
-      console.log(user.email);
     }
   };
   useEffect(() => {
@@ -39,6 +38,7 @@ const Login = () => {
   });
 
   const handleLogin = () => {
+    console.log(user.email)
     if (user.email === userInfo.email && user.pwd === userInfo.pwd) {
       //localStorage에 아이디와 비밀번호 저장
       localStorage.setItem("email", user.email);
@@ -47,7 +47,7 @@ const Login = () => {
       navigate("/feed");
     } else {
       alert("이메일 또는 비밀번호가 틀립니다.");
-      idRef.current.value = "";
+      emailRef.current.value = "";
       pwdRef.current.value = "";
     }
   };
@@ -65,7 +65,7 @@ const Login = () => {
             className={user.email ? "input-valid" : "input-invalid"}
             placeholder="전화번호, 사용자 이름 또는 이메일"
             id="email"
-            ref={idRef}
+            ref={emailRef}
             onChange={checkValidInfo}
           />
           <input
