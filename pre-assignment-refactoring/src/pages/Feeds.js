@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import Feed from "../components/Feed";
+import Feed from "../components/Feed/Feed";
 import styled from "styled-components";
 import Header from "../components/Header";
 import { useNavigate } from "react-router-dom";
