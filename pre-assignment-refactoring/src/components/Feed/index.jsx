@@ -10,6 +10,7 @@ import {
   IconList,
   UserName,
   Nickname,
+  Comments,
   Comment,
   Avatar,
 } from './style';
@@ -63,12 +64,14 @@ const Feed = ({ feed }) => {
           </Icon>
         </IconList>
         <Like>좋아요 {feed.like}개</Like>
-        {comments.map((comment, idx) => (
-          <Comment key={idx} comment={comment}>
-            <Nickname>{comment.nickname}</Nickname>
-            <p>{comment.content}</p>
-          </Comment>
-        ))}
+        <Comments>
+          {comments.map((comment, idx) => (
+            <Comment key={idx} comment={comment}>
+              <Nickname>{comment.nickname}</Nickname>
+              <p>{comment.content}</p>
+            </Comment>
+          ))}
+        </Comments>
         <CommentForm addComment={addComment} />
       </Contents>
     </Li>

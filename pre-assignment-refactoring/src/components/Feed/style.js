@@ -66,6 +66,11 @@ export const Like = styled.span`
   font-weight: 500;
 `;
 
+export const Comments = styled.ul`
+  margin-bottom: 2rem;
+  padding: 0 1rem;
+`;
+
 export const Comment = styled.li`
   margin-bottom: 0.4rem;
   display: flex;
