@@ -58,7 +58,7 @@ const Login = () => {
         <div>
           <img
             className="logo"
-            src={process.env.PUBLIC_URL + "/assets/logo.png"}
+            src={process.env.PUBLIC_URL + "/assets/insta-logo.png"}
             alt="로고"
           />
           <input
@@ -88,7 +88,7 @@ const Login = () => {
         </div>
         <div className="login-sns">
           <p>
-            <img src={process.env.PUBLIC_URL + "/assets/social.png"} />
+            <img src={process.env.PUBLIC_URL + '/assets/facebook-logo.png'} alt="페이스북 로고"/>
             Facebook으로 로그인
           </p>
           <p className="find-pwd">비밀번호를 잊으셨나요?</p>
@@ -101,8 +101,8 @@ const Login = () => {
       </section>
       <section className="login-download">
         <p>앱을 다운로드하세요.</p>
-        <img src={process.env.PUBLIC_URL + "/assets/login-apple.png"} />
-        <img src={process.env.PUBLIC_URL + "/assets/login-google.png"} />
+        <img src={process.env.PUBLIC_URL + '/assets/login-apple.png'} alt="애플스토어"/>
+        <img src={process.env.PUBLIC_URL + '/assets/login-google.png'} alt="플레이스토어"/>
       </section>
     </div>
   );
