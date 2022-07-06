@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useCallback } from 'react';
-import CommentForm from './CommentForm';
+import CommentForm from './CommentForm/CommentForm';
 import {
   Li,
   Header,
@@ -14,7 +14,7 @@ import {
   Comments,
   Comment,
   Avatar,
-} from './style';
+} from '../styles/feedStyle';
 import { HiOutlineDotsHorizontal } from 'react-icons/hi';
 import { FiHeart, FiSend, FiBookmark } from 'react-icons/fi';
 import { FaRegComment } from 'react-icons/fa';
