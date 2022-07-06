@@ -10,7 +10,10 @@ import {
   IconList,
   UserName,
   Nickname,
+  Description,
+  Comments,
   Comment,
+  Avatar,
 } from './style';
 import { HiOutlineDotsHorizontal } from 'react-icons/hi';
 import { FiHeart, FiSend, FiBookmark } from 'react-icons/fi';
@@ -39,6 +42,7 @@ const Feed = ({ feed }) => {
   return loading ? null : (
     <Li>
       <Header>
+        <Avatar src={feed.profile_url} />
         <UserName>{feed.nickname}</UserName>
         <Icon>
           <HiOutlineDotsHorizontal />
@@ -61,12 +65,15 @@ const Feed = ({ feed }) => {
           </Icon>
         </IconList>
         <Like>좋아요 {feed.like}개</Like>
-        {comments.map((comment, idx) => (
-          <Comment key={idx} comment={comment}>
-            <Nickname>{comment.nickname}</Nickname>
-            <p>{comment.content}</p>
-          </Comment>
-        ))}
+        <Description>{feed.content}</Description>
+        <Comments>
+          {comments.map((comment, idx) => (
+            <Comment key={idx} comment={comment}>
+              <Nickname>{comment.nickname}</Nickname>
+              <p>{comment.content}</p>
+            </Comment>
+          ))}
+        </Comments>
         <CommentForm addComment={addComment} />
       </Contents>
     </Li>
