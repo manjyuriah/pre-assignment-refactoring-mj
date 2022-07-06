@@ -1,3 +1,4 @@
+
 import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Login from "./pages/Login";
@@ -9,7 +10,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Login />} />
-          <Route path="/feed" element={<Feeds />} />
+          <Route path="/feeds" element={<Feeds />} />
         </Routes>
       </BrowserRouter>
     </>
