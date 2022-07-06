@@ -14,7 +14,6 @@ const Login = () => {
 
   const localStorage = window.localStorage;
   const [validBtn, setValidBtn] = useState(false);
-  const [isLogged, setIsLogged] = useState(false);
   const [user, setUser] = useState({
     email: null,
     pwd: null,
@@ -44,7 +43,6 @@ const Login = () => {
       //localStorage에 아이디와 비밀번호 저장
       localStorage.setItem("email", user.email);
       localStorage.setItem("pwd", user.pwd);
-      setIsLogged(true);
       navigate("/feeds");
     } else {
       alert("이메일 또는 비밀번호가 틀립니다.");
