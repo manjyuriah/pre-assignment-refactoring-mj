@@ -19,7 +19,7 @@ const Login = () => {
     pwd: null,
   });
 
-  const idRef = useRef();
+  const emailRef = useRef();
   const pwdRef = useRef();
 
   //이메일과 비밀번호 유효성 검사
@@ -29,7 +29,6 @@ const Login = () => {
     const result = checkRegexp(key, value);
     if (result) {
       setUser({ ...user, [key]: value });
-      console.log(user.email);
     }
   };
   useEffect(() => {
@@ -39,6 +38,7 @@ const Login = () => {
   });
 
   const handleLogin = () => {
+    console.log(user.email)
     if (user.email === userInfo.email && user.pwd === userInfo.pwd) {
       //localStorage에 아이디와 비밀번호 저장
       localStorage.setItem("email", user.email);
@@ -47,7 +47,7 @@ const Login = () => {
       navigate("/feed");
     } else {
       alert("이메일 또는 비밀번호가 틀립니다.");
-      idRef.current.value = "";
+      emailRef.current.value = "";
       pwdRef.current.value = "";
     }
   };
@@ -58,14 +58,14 @@ const Login = () => {
         <div>
           <img
             className="logo"
-            src={process.env.PUBLIC_URL + "/assets/logo.png"}
+            src={process.env.PUBLIC_URL + "/assets/insta-logo.png"}
             alt="로고"
           />
           <input
             className={user.email ? "input-valid" : "input-invalid"}
             placeholder="전화번호, 사용자 이름 또는 이메일"
             id="email"
-            ref={idRef}
+            ref={emailRef}
             onChange={checkValidInfo}
           />
           <input
@@ -88,7 +88,7 @@ const Login = () => {
         </div>
         <div className="login-sns">
           <p>
-            <img src={process.env.PUBLIC_URL + "/assets/social.png"} />
+            <img src={process.env.PUBLIC_URL + '/assets/facebook-logo.png'} alt="페이스북 로고"/>
             Facebook으로 로그인
           </p>
           <p className="find-pwd">비밀번호를 잊으셨나요?</p>
@@ -101,8 +101,8 @@ const Login = () => {
       </section>
       <section className="login-download">
         <p>앱을 다운로드하세요.</p>
-        <img src={process.env.PUBLIC_URL + "/assets/login-apple.png"} />
-        <img src={process.env.PUBLIC_URL + "/assets/login-google.png"} />
+        <img src={process.env.PUBLIC_URL + '/assets/login-apple.png'} alt="애플스토어"/>
+        <img src={process.env.PUBLIC_URL + '/assets/login-google.png'} alt="플레이스토어"/>
       </section>
     </div>
   );
