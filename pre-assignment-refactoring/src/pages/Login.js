@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { checkRegexp } from "../components/RegExp";
+import { LoginDiv, LoginSection, LogoImg, LoginInput, LoginButton, LoginSocial, Signup, LoginDownload } from '../components/styles/loginStyle'
 
 //임시 유저 정보
 const userInfo = {
@@ -44,7 +45,7 @@ const Login = () => {
       localStorage.setItem("email", user.email);
       localStorage.setItem("pwd", user.pwd);
       setIsLogged(true);
-      navigate("/feed");
+      navigate("/feeds");
     } else {
       alert("이메일 또는 비밀번호가 틀립니다.");
       emailRef.current.value = "";
@@ -53,58 +54,58 @@ const Login = () => {
   };
 
   return (
-    <div className="Login">
-      <section className="login-input">
+    <LoginDiv>
+      <LoginSection>
         <div>
-          <img
+          <LogoImg
             className="logo"
             src={process.env.PUBLIC_URL + "/assets/insta-logo.png"}
             alt="로고"
           />
-          <input
-            className={user.email ? "input-valid" : "input-invalid"}
+          <LoginInput
+            color={user.email}
             placeholder="전화번호, 사용자 이름 또는 이메일"
             id="email"
             ref={emailRef}
             onChange={checkValidInfo}
           />
-          <input
-            className={user.pwd ? "input-valid" : "input-invalid"}
+          <LoginInput
+            color={user.pwd}
             placeholder="비밀번호"
             type="password"
             id="pwd"
             ref={pwdRef}
             onChange={checkValidInfo}
           />
-          <button
-            className={validBtn ? "btn-activate" : "btn-disabled"}
+          <LoginButton
+            color={validBtn}
             disabled={!validBtn}
             onClick={handleLogin}
           >
             로그인
-          </button>
+          </LoginButton>
           <div className="line"></div>
           <span>또는</span>
         </div>
-        <div className="login-sns">
+        <LoginSocial>
           <p>
             <img src={process.env.PUBLIC_URL + '/assets/facebook-logo.png'} alt="페이스북 로고"/>
             Facebook으로 로그인
           </p>
           <p className="find-pwd">비밀번호를 잊으셨나요?</p>
-        </div>
-      </section>
-      <section className="login-signup">
+        </LoginSocial>
+      </LoginSection>
+      <Signup>
         <div>
           계정이 없으신가요?<span> 가입하기</span>
         </div>
-      </section>
-      <section className="login-download">
+      </Signup>
+      <LoginDownload>
         <p>앱을 다운로드하세요.</p>
         <img src={process.env.PUBLIC_URL + '/assets/login-apple.png'} alt="애플스토어"/>
         <img src={process.env.PUBLIC_URL + '/assets/login-google.png'} alt="플레이스토어"/>
-      </section>
-    </div>
+      </LoginDownload>
+    </LoginDiv>
   );
 };
 
