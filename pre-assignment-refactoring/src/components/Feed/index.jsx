@@ -10,6 +10,7 @@ import {
   IconList,
   UserName,
   Nickname,
+  Description,
   Comments,
   Comment,
   Avatar,
@@ -64,6 +65,7 @@ const Feed = ({ feed }) => {
           </Icon>
         </IconList>
         <Like>좋아요 {feed.like}개</Like>
+        <Description>{feed.content}</Description>
         <Comments>
           {comments.map((comment, idx) => (
             <Comment key={idx} comment={comment}>

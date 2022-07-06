@@ -48,8 +48,8 @@ export const FeedImage = styled.img`
 `;
 
 export const IconList = styled.div`
-  padding: 0 1rem;
-  padding-top: 0.5rem;
+  margin: 0 1rem;
+  margin-top: 0.5rem;
   display: flex;
 
   & :last-child {
@@ -60,19 +60,26 @@ export const IconList = styled.div`
 
 export const Like = styled.span`
   display: inline-block;
-  padding: 1rem;
+  margin-left: 1rem;
 
   font-size: ${({ theme }) => theme.fontSizes.small};
   font-weight: 500;
 `;
 
+export const Description = styled.p`
+  margin-left: 1rem;
+  padding: 0.2rem 0;
+  font-size: ${({ theme }) => theme.fontSizes.small};
+`;
+
 export const Comments = styled.ul`
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
   padding: 0 1rem;
+  padding-top: 0.2rem;
 `;
 
 export const Comment = styled.li`
-  margin-bottom: 0.4rem;
+  margin-bottom: 0.1rem;
   display: flex;
   font-size: ${({ theme }) => theme.fontSizes.small};
   & > p {
