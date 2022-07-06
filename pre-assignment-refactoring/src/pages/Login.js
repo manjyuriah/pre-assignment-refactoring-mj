@@ -35,7 +35,7 @@ const Login = () => {
     if (user.email && user.pwd) {
       setValidBtn(true);
     }
-  });
+  },[user.email, user.pwd]);
 
   const handleLogin = () => {
     console.log(user.email)
