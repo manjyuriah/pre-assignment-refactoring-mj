@@ -131,7 +131,7 @@
     onClick={handleLogin}
   >
 ```
-user.email은 non-boolean값인데 boolean값으로 false를 받았다는 의미
+- user.email은 non-boolean값인데 boolean값으로 false를 받았다는 의미
 
 - ⬇️수정코드
 ```
@@ -157,7 +157,7 @@ user.email은 non-boolean값인데 boolean값으로 false를 받았다는 의미
 >
 ```
 - ⭐️ 조건에 따른 return 값을 삼항연산자를 활용하여 명확하게 명시
-- ⭐️ <LoginButton>의 경우 validBtn의 값이 boolean이기 때문에 toString()으로 문자열로 변환
+- ⭐️ `<LoginButton>`의 경우 validBtn의 값이 boolean이기 때문에 toString()으로 문자열로 변환
 
 ### ⚠️ error  
 <img width="1119" alt="error3" src="https://user-images.githubusercontent.com/73277502/177497524-c90fe6c0-1f13-497d-ab64-51e3baa58fc9.png">  
