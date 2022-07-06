@@ -1,8 +1,8 @@
-import "./App.css";
-import Header from "./components/Header";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Login from "./pages/Login";
-import Feeds from "./pages/Feeds";
+import './App.css';
+import Header from './components/Header';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Login from './pages/Login';
+import Feeds from './pages/Feeds';
 
 function App() {
   return (
@@ -10,7 +10,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Login />} />
-          <Route path="/feed" element={<Feeds />} />
+          <Route path="/feeds" element={<Feeds />} />
         </Routes>
       </BrowserRouter>
     </>

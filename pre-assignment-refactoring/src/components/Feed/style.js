@@ -19,6 +19,13 @@ export const Header = styled.header`
   }
 `;
 
+export const Avatar = styled.img`
+  height: 42px;
+  width: 42px;
+  border-radius: 50%;
+  cursor: pointer;
+`;
+
 export const UserName = styled.span`
   margin-left: 18px;
   font-size: ${({ theme }) => theme.fontSizes.small};

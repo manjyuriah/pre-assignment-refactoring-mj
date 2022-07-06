@@ -11,6 +11,7 @@ import {
   UserName,
   Nickname,
   Comment,
+  Avatar,
 } from './style';
 import { HiOutlineDotsHorizontal } from 'react-icons/hi';
 import { FiHeart, FiSend, FiBookmark } from 'react-icons/fi';
@@ -39,6 +40,7 @@ const Feed = ({ feed }) => {
   return loading ? null : (
     <Li>
       <Header>
+        <Avatar src={feed.profile_url} />
         <UserName>{feed.nickname}</UserName>
         <Icon>
           <HiOutlineDotsHorizontal />
