@@ -61,17 +61,22 @@ const Body = styled.div`
   display: flex;
   align-items: center;
   position: sticky;
+  top: 0;
   height: 10vh;
-  width: 100%;
-  border-bottom: 1px solid black;
+  min-width: 520px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.25);
 `;
 
 const Bundle = styled.div`
+  @media (max-width: 675px) {
+    width: 80%;
+    margin: 0 1.5rem;
+  }
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 100%;
-  margin: 0 10vw;
+  width: 90%;
+  margin: 0 5rem;
 `;
 
 const Instagram = styled.div`
@@ -86,21 +91,21 @@ const Input = styled.input`
   padding: 10px 0 10px 10px;
   background-color: rgba(0, 0, 0, 0);
   border: none;
-  width: 20vw;
+  width: 20rem;
 `;
 
 const Icons = styled.div`
   display: flex;
   justify-content: space-around;
   align-items: center;
-  width: 25%;
+  width: 15%;
 `;
 
 const Search = styled.div`
   display: flex;
   @media (max-width: 675px) {
     display: none;
-    justify-content: space-between;
+    /* justify-content: space-between; */
   }
   align-items: center;
   padding: 1px 10px;
